@@ -1,0 +1,329 @@
+:root {
+    --bg-primary: #0b0f19;
+    --bg-secondary: #151d30;
+    --bg-card: #1e2942;
+    --accent: #00f0ff;
+    --accent-hover: #00b8cc;
+    --text-main: #f1f5f9;
+    --text-muted: #64748b;
+    --success: #10b981;
+    --danger: #f43f5e;
+    --warning: #f59e0b;
+    --code-bg: #05070c;
+    --border-color: #2e3d60;
+    --radius-lg: 12px;
+    --radius-md: 8px;
+}
+
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    font-family: 'JetBrains Mono', 'Segoe UI', system-ui, sans-serif; 
+}
+
+body { 
+    background: var(--bg-primary); 
+    color: var(--text-main); 
+    min-height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+}
+
+.wrapper { width: 100%; max-width: 800px; }
+.hidden { display: none !important; }
+.text-center { text-align: center; }
+.text-muted { color: var(--text-muted); }
+.text-accent { color: var(--accent); }
+.font-bold { font-weight: 700; }
+
+/* Modal Customizado */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(5, 7, 12, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 1000;
+}
+.modal-card {
+    background: var(--bg-card);
+    border: 2px solid var(--accent);
+    padding: 30px; border-radius: var(--radius-lg);
+    max-width: 400px; width: 90%; text-align: center;
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.2);
+}
+.modal-icon { font-size: 40px; margin-bottom: 15px; }
+.modal-card h3 { margin-bottom: 10px; font-size: 22px; }
+.modal-card p { color: var(--text-muted); margin-bottom: 20px; line-height: 1.5; }
+
+/* Tela de Login */
+.login-container { 
+    max-width: 450px; 
+    margin: 60px auto; 
+    padding: 40px; 
+    background: var(--bg-secondary); 
+    border-radius: var(--radius-lg); 
+    border: 1px solid var(--border-color); 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+.logo-icon { font-size: 60px; margin-bottom: 15px; animation: float 3s ease-in-out infinite; }
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.form-group { margin: 25px 0; text-align: left; }
+.form-group label { display: block; margin-bottom: 10px; color: var(--text-muted); font-size: 14px; }
+.form-group input { 
+    width: 100%; padding: 14px; background: var(--bg-primary); 
+    border: 1px solid var(--border-color); border-radius: var(--radius-md); 
+    color: #fff; font-size: 16px; transition: all 0.3s;
+}
+.form-group input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px rgba(0,240,255,0.2); }
+
+/* Layout Geral */
+.main-header { 
+    display: flex; justify-content: space-between; align-items: center; 
+    padding-bottom: 20px; border-bottom: 1px solid var(--border-color); margin-bottom: 25px; 
+}
+.header-logo { font-size: 24px; font-weight: bold; color: var(--accent); text-shadow: 0 0 10px rgba(0,240,255,0.3); }
+.header-actions { display: flex; align-items: center; gap: 15px; }
+.user-badge { background: var(--bg-secondary); padding: 8px 16px; border-radius: 30px; font-size: 14px; border: 1px solid var(--border-color); }
+.btn-logout { background: transparent; border: none; color: var(--danger); cursor: pointer; font-weight: bold; transition: opacity 0.2s; }
+.btn-logout:hover { opacity: 0.8; text-decoration: underline; }
+
+/* Navegação por Abas */
+.tab-navigation { display: flex; gap: 12px; margin-bottom: 25px; }
+.tab-btn { 
+    flex: 1; padding: 14px; background: var(--bg-secondary); border: 1px solid var(--border-color); 
+    color: var(--text-muted); border-radius: var(--radius-md); cursor: pointer; font-weight: bold; transition: all 0.2s;
+}
+.tab-btn:hover { border-color: var(--accent); color: var(--text-main); }
+.tab-btn.active { background: var(--accent); color: var(--bg-primary); border-color: var(--accent); box-shadow: 0 4px 15px rgba(0,240,255,0.3); }
+
+/* Componentes de Cartão */
+.card { background: var(--bg-secondary); padding: 30px; border-radius: var(--radius-lg); border: 1px solid var(--border-color); margin-bottom: 25px; }
+.card h2 { margin-bottom: 10px; }
+
+/* Botões Genericos */
+.btn { 
+    background: var(--accent); color: var(--bg-primary); padding: 12px 24px; 
+    border: none; border-radius: var(--radius-md); font-weight: bold; cursor: pointer; transition: all 0.2s; 
+}
+.btn:hover { background: var(--accent-hover); transform: translateY(-1px); }
+.btn-lg { padding: 16px 32px; font-size: 18px; margin-top: 15px; }
+.btn-full { width: 100%; }
+.btn-danger { background: rgba(244, 63, 94, 0.1); color: var(--danger); border: 1px solid var(--danger); }
+.btn-danger:hover { background: var(--danger); color: white; }
+.btn-sm { padding: 6px 12px; font-size: 12px; }
+
+/* Painel de Status do Quiz */
+.quiz-stats { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 25px; background: var(--bg-secondary); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-color); }
+.stat-box { font-weight: bold; font-size: 16px; }
+.lives-display { letter-spacing: 2px; transition: all 0.3s; }
+
+/* Barra de Progresso Tracionada */
+.progress-wrapper { flex: 1; padding-right: 10px; }
+.progress-track { height: 12px; background: var(--bg-primary); border-radius: 6px; border: 1px solid var(--border-color); overflow: visible; position: relative; }
+.progress-bar { 
+    width: 0%; height: 100%; background: linear-gradient(90deg, var(--accent), var(--success)); 
+    border-radius: 6px; transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: visible;
+}
+
+/* Área de Código / Terminal */
+.quiz-card { background: var(--bg-secondary); border-radius: var(--radius-lg); border: 1px solid var(--border-color); overflow: hidden; }
+.code-header { background: #0d1321; padding: 10px 20px; font-size: 12px; color: var(--text-muted); border-bottom: 1px solid var(--border-color); }
+pre { background: var(--code-bg); padding: 25px; font-size: 16px; overflow-x: auto; color: #adbac7; line-height: 1.6; }
+
+/* Caixa de Dica Customizada */
+.hint-box { background: rgba(245, 158, 11, 0.1); color: var(--warning); padding: 16px; font-size: 14px; border-left: 4px solid var(--warning); border-bottom: 1px solid var(--border-color); line-height: 1.4; }
+.options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; padding: 25px; }
+
+/* Botões do Quiz */
+.option-btn { 
+    padding: 16px; background: var(--bg-primary); border: 1px solid var(--border-color); 
+    color: var(--text-main); border-radius: var(--radius-md); cursor: pointer; 
+    text-align: left; font-size: 15px; transition: all 0.2s ease;
+}
+.option-btn:hover { 
+    border-color: var(--accent); background: rgba(0, 240, 255, 0.05); 
+    transform: translateX(4px); box-shadow: -4px 0 0 var(--accent);
+}
+.option-btn.correct { background: var(--success) !important; color: white; border-color: var(--success) !important; font-weight: bold; }
+.option-btn.wrong { background: var(--danger) !important; color: white; border-color: var(--danger) !important; font-weight: bold; }
+
+/* Tabelas e Líderes */
+.ranking-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.table-container { overflow-x: auto; }
+.ranking-table { width: 100%; border-collapse: collapse; text-align: left; }
+.ranking-table th, .ranking-table td { padding: 16px 12px; border-bottom: 1px solid var(--border-color); }
+.ranking-table th { color: var(--text-muted); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+
+.rank-badge { display: inline-block; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 14px; }
+.rank-1 { background: rgba(234, 179, 8, 0.2); color: #f59e0b; border: 1px solid #f59e0b; }
+.rank-2 { background: rgba(148, 163, 184, 0.2); color: #94a3b8; border: 1px solid #94a3b8; }
+.rank-3 { background: rgba(180, 83, 9, 0.2); color: #b45309; border: 1px solid #b45309; }
+
+/* --- ELEMENTOS ANIMADOS DA ÁGUIA --- */
+.eagle-avatar {
+    position: absolute; right: -15px; top: -14px;
+    font-size: 24px; display: inline-block;
+    pointer-events: none; user-select: none;
+    transform: scaleX(-1);
+}
+.eagle-flying { animation: eagleFlap 0.15s ease-in-out infinite alternate; }
+.eagle-winking { animation: eagleWinkPulse 0.3s ease-in-out 2 alternate; }
+
+@keyframes eagleFlap {
+    0% { transform: scaleX(-1) translateY(0) rotate(-4deg); }
+    100% { transform: scaleX(-1) translateY(-6px) rotate(6deg); }
+}
+@keyframes eagleWinkPulse {
+    0% { transform: scaleX(-1) scale(1); }
+    100% { transform: scaleX(-1) scale(1.4); }
+}
+/* Tela de Login - Logo Animada */
+.logo-icon { 
+    font-size: 60px; 
+    margin-bottom: 15px; 
+    display: inline-block; /* Garante que a rotação e a flutuação funcionem corretamente */
+    animation: floatAndSpin 4s ease-in-out infinite; 
+}
+
+@keyframes floatAndSpin {
+    0% {
+        transform: translateY(3) rotate(0deg);
+    }
+    30% {
+        transform: translateY(-12px) rotate(0deg); /* Flutua um pouco para cima */
+    }
+    40% {
+        transform: translateY(-12px) rotate(0deg); /* Mantém no topo antes de girar */
+    }
+    75% {
+        transform: translateY(-12px) rotate(360deg); /* Dá um giro completo de 360° ainda no topo */
+    }
+    100% {
+        transform: translateY(0) rotate(360deg); /* Volta para a posição inicial mantendo o giro */
+    }
+}
+/* Animação de flutuação suave para a logo interna do jogo */
+.logo-game-floating {
+    display: inline-block;
+    animation: gentleGameFloat 3s ease-in-out infinite;
+}
+
+@keyframes gentleGameFloat {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px); /* Elevação sutil para não quebrar o layout */
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+/* Tela de Login - Logo Animada com Olho Vermelho Ativado */
+.logo-icon { 
+    font-size: 60px; 
+    margin-bottom: 15px; 
+    display: inline-block; 
+    animation: floatSpinAndGlow 4s ease-in-out infinite; 
+}
+
+@keyframes floatSpinAndGlow {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        filter: drop-shadow(0 0 0 transparent);
+    }
+    /* 30% a 40%: O boneco sobe e o "olho vermelho" acende/brilha intensamente */
+    30% {
+        transform: translateY(-12px) rotate(0deg); 
+        filter: drop-shadow(0 0 15px #f43f5e) hue-rotate(320deg) saturate(3);
+    }
+    40% {
+        transform: translateY(-12px) rotate(0deg); 
+        filter: drop-shadow(0 0 25px #f43f5e) hue-rotate(320deg) saturate(5);
+    }
+    /* 75%: Ele dá o giro mantendo o brilho vermelho */
+    75% {
+        transform: translateY(-12px) rotate(360deg); 
+        filter: drop-shadow(0 0 20px #f43f5e) hue-rotate(320deg) saturate(4);
+    }
+    /* 100%: Ele desce e o brilho apaga */
+    100% {
+        transform: translateY(0) rotate(360deg); 
+        filter: drop-shadow(0 0 0 transparent);
+    }
+}
+/* Tela de Login - Logo Animada (Modo Fúria) */
+.logo-icon { 
+    font-size: 60px; 
+    margin-bottom: 15px; 
+    display: inline-block; 
+    animation: floatSpinAndFury 4s ease-in-out infinite;
+    transition: filter 0.3s ease;
+}
+
+@keyframes floatSpinAndFury {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        filter: drop-shadow(0 0 0 transparent);
+    }
+    /* 30% a 40%: Entra no MODO FÚRIA (muda para vermelho e brilha) */
+    30% {
+        transform: translateY(-12px) rotate(0deg); 
+        /* hue-rotate(110deg) rotaciona o roxo do emoji para o espectro vermelho */
+        filter: hue-rotate(110deg) saturate(8) drop-shadow(0 0 15px #f43f5e);
+    }
+    40% {
+        transform: translateY(-12px) rotate(0deg); 
+        filter: hue-rotate(110deg) saturate(10) drop-shadow(0 0 30px #f43f5e) brightness(1.2);
+    }
+    /* 75%: Mantém a fúria e o visual vermelho durante o giro */
+    75% {
+        transform: translateY(-12px) rotate(360deg); 
+        filter: hue-rotate(110deg) saturate(10) drop-shadow(0 0 25px #f43f5e) brightness(1.2);
+    }
+    /* 100%: Desliga o Modo Fúria e volta ao roxo original na base */
+    100% {
+        transform: translateY(0) rotate(360deg); 
+        filter: drop-shadow(0 0 0 transparent);
+    }
+}
+/* ESTILOS DO SELETOR DE LINGUAGEM */
+.lang-selector-container {
+    margin: 20px auto;
+    max-width: 300px;
+}
+
+.lang-dropdown {
+    width: 100%;
+    padding: 12px 20px;
+    background: var(--bg-primary);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-main);
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'JetBrains Mono', sans-serif;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.lang-dropdown:focus, .lang-dropdown:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+}
+
+.lang-dropdown option {
+    background: var(--bg-secondary);
+    color: var(--text-main);
+    padding: 10px;
+}
